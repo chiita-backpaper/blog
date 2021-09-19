@@ -1,30 +1,40 @@
 import Container from './container'
 import { EXAMPLE_PATH } from '../lib/constants'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 export default function Footer() {
   return (
     <footer className="bg-accent-1 border-t border-accent-2">
-      <Container>
-        <div className="py-28 flex flex-col lg:flex-row items-center">
-          <h3 className="text-4xl lg:text-5xl font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
-            Statically Generated with Next.js.
-          </h3>
-          <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
-            <a
-              href="https://nextjs.org/docs/basic-features/pages"
-              className="mx-3 bg-black hover:bg-white hover:text-black border border-black text-white font-bold py-3 px-12 lg:px-8 duration-200 transition-colors mb-6 lg:mb-0"
-            >
-              Read Documentation
-            </a>
-            <a
-              href={`https://github.com/vercel/next.js/tree/canary/examples/${EXAMPLE_PATH}`}
-              className="mx-3 font-bold hover:underline"
-            >
-              View on GitHub
-            </a>
-          </div>
+      <Container >
+        <div className="flex flex-col lg:flex-row justify-center items-center">
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-4"
+            href="https://github.com/chiita-backpaper"
+            role="button"
+            data-mdb-ripple-color="dark"
+          ><FontAwesomeIcon icon={faGithub} size="2x" /></a>
+
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-4"
+            href="https://twitter.com/back_paper_"
+            role="button"
+            data-mdb-ripple-color="dark"
+          ><FontAwesomeIcon icon={faTwitter} size="2x" />
+          </a>
+
+          <a
+            class="btn btn-link btn-floating btn-lg text-dark m-4"
+            href="https://www.instagram.com/back_paper_/"
+            role="button"
+            data-mdb-ripple-color="dark"
+          ><FontAwesomeIcon icon={faInstagram} size="2x" />
+          </a>
+
         </div>
       </Container>
-    </footer>
+    </footer >
   )
 }
