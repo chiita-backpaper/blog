@@ -11,14 +11,14 @@ export default function Footer() {
       <Container >
         <div className="flex flex-col lg:flex-row justify-center items-center">
           <a
-            class="btn btn-link btn-floating btn-lg text-dark m-4"
+            className="btn btn-link btn-floating btn-lg text-dark m-4"
             href="https://github.com/chiita-backpaper"
             role="button"
             data-mdb-ripple-color="dark"
           ><FontAwesomeIcon icon={faGithub} size="2x" /></a>
 
           <a
-            class="btn btn-link btn-floating btn-lg text-dark m-4"
+            className="btn btn-link btn-floating btn-lg text-dark m-4"
             href="https://twitter.com/back_paper_"
             role="button"
             data-mdb-ripple-color="dark"
@@ -26,7 +26,7 @@ export default function Footer() {
           </a>
 
           <a
-            class="btn btn-link btn-floating btn-lg text-dark m-4"
+            className="btn btn-link btn-floating btn-lg text-dark m-4"
             href="https://www.instagram.com/back_paper_/"
             role="button"
             data-mdb-ripple-color="dark"

@@ -26,7 +26,7 @@ export default function HeroPost({
         <h2 className="mb-8 text-4xl md:text-6xl font-bold tracking-tighter leading-tight">
           最新の記事
         </h2>
-        <div class="bg-white p-6 rounded-lg shadow-lg">
+        <div className="bg-white p-6 rounded-lg shadow-lg">
           <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
             <Link as={`/posts/${slug}`} href="/posts/[slug]">
               <a className="hover:underline">{title}</a>
