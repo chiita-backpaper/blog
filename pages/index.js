@@ -21,6 +21,7 @@ export default function Index({ allPosts }) {
           {heroPost && (
             <HeroPost
               title={heroPost.title}
+              category={heroPost.category}
               coverImage={heroPost.coverImage}
               date={heroPost.date}
               author={heroPost.author}
@@ -38,6 +39,7 @@ export default function Index({ allPosts }) {
 export async function getStaticProps() {
   const allPosts = getAllPosts([
     'title',
+    'category',
     'date',
     'slug',
     'author',

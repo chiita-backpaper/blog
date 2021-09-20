@@ -11,6 +11,7 @@ export default function MoreStories({ posts }) {
           <PostPreview
             key={post.slug}
             title={post.title}
+            category={post.category}
             coverImage={post.coverImage}
             date={post.date}
             author={post.author}

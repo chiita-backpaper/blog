@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 export default function HeroPost({
   title,
+  category,
   coverImage,
   date,
   excerpt,
@@ -24,12 +25,18 @@ export default function HeroPost({
       </div> */}
       <div className="md:grid md:grid-cols-1 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <h2 className="mb-8 text-4xl md:text-6xl font-bold tracking-tighter leading-tight">
-          最新の記事
+          最新記事
         </h2>
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h3 className="mb-4 text-4xl lg:text-6xl leading-tight">
             <Link as={`/posts/${slug}`} href="/posts/[slug]">
               <a className="hover:underline">{title}</a>
+            </Link>
+          </h3>
+          <h3 className="mb-4 text-2xl lg:text-4xl leading-tight">
+            Category:
+            <Link as={`/category/${category}`} href="/category/[slug]">
+              <a className="hover:underline"> {category}</a>
             </Link>
           </h3>
           <div className="mb-4 md:mb-0 text-lg">
