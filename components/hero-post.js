@@ -35,7 +35,7 @@ export default function HeroPost({
           </h3>
           <h3 className="mb-4 text-2xl lg:text-4xl leading-tight">
             Category:
-            <Link as={`/category/${category}`} href="/category/[slug]">
+            <Link as={`/categories/${category}`} href="/categories/[category]">
               <a className="hover:underline"> {category}</a>
             </Link>
           </h3>

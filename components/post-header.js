@@ -10,7 +10,7 @@ export default function PostHeader({ title, category, coverImage, date, author }
       <PostTitle>{title}</PostTitle>
       <h3 className="text-2xl mb-3 leading-snug">
         Category:
-        <Link as={`/category/${category}`} href="/category/[slug]">
+        <Link as={`/categories/${category}`} href="/categories/[category]">
           <a className="hover:underline"> {category}</a>
         </Link>
       </h3>
