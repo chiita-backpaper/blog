@@ -7,40 +7,43 @@ import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
 import DateFormatter from '../../components/date-formatter'
 import Avatar from '../../components/avatar'
+import CategoryList from '../../components/category-list'
 import Layout from '../../components/layout'
-import { getAllPosts, getPostsByCategory } from '../../lib/api'
+import { getAllPosts, getPostsByCategory, getPostSlugs, getAllCategories } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
 import MoreStories from '../../components/more-stories';
 
-export default function Category({ posts, morePosts, preview }) {
+export default function Category({ posts, categories, morePosts, preview }) {
 	const router = useRouter()
 	if (!router.isFallback && !posts) {
 		return <ErrorPage statusCode={404} />
 	}
 	return (
 		<Layout preview={preview}>
-			{console.log(posts)}
 			<Container>
-				<Header />
-				{router.isFallback ? (
-					<PostTitle>Loading…</PostTitle>
-				) : (
-						<>
-							<Head>
-								<title>
-									{"yomoyama-" + posts[0].category}
-								</title>
-								{/* <meta property="og:image" content={posts[0].ogImage.url} /> */}
-								{/* ogImageって何？ */}
-							</Head>
-							<Container>
-								<MoreStories title={posts[0].category} posts={posts} />
-							</Container>
-						</>
-					)}
+				<Container>
+					<Header />
+					{router.isFallback ? (
+						<PostTitle>Loading…</PostTitle>
+					) : (
+							<>
+								<Head>
+									<title>
+										{"yomoyama-" + posts[0].category}
+									</title>
+									{/* <meta property="og:image" content={posts[0].ogImage.url} /> */}
+									{/* ogImageって何？ */}
+								</Head>
+								<Container>
+									<MoreStories title={posts[0].category} posts={posts} />
+								</Container>
+							</>
+						)}
+				</Container>
+				<CategoryList categories={categories} />
 			</Container>
 		</Layout>
 	)
@@ -57,21 +60,18 @@ export async function getStaticProps({ params }) {
 		'ogImage',
 		'coverImage',
 	])
-	// const content = await markdownToHtml(post.content || '')
+	const categories = getAllCategories()
 
 	return {
 		props: {
-			posts: posts
+			posts: posts,
+			categories: categories
 		},
 	}
 }
 
 export async function getStaticPaths() {
 	const posts = getAllPosts(['category'])
-	// console.log(posts)
-	// console.log(posts.map((post) =>
-	// 	typeof (post.category)
-	// ))
 	return {
 		paths: posts.map((post) => {
 			return {
