@@ -14,7 +14,7 @@ export default function Index({ allPosts }) {
     <>
       <Layout>
         <Head>
-          <title>yomoyama </title>
+          <title>yomoyamabanashi </title>
         </Head>
         <Container>
           <Intro />

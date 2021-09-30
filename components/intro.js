@@ -6,7 +6,7 @@ export default function Intro() {
     <section className="flex-col lg:flex-row flex items-center lg:justify-Start mt-16 mb-16 lg:mb-12">
       <div className="flex items-end ..">
         <h1 className="text-4xl lg:text-8xl font-bold tracking-tighter leading-tight lg:pr-4">
-          yomoyama.
+          yomoyamabanashi.
         </h1>
         {/* <h2 className="text-center md:text-left text-lg mt-5 md:pl-8">
           <div className="flex items-center">

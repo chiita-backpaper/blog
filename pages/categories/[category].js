@@ -32,7 +32,7 @@ export default function Category({ posts, categories, morePosts, preview }) {
 						<>
 							<Head>
 								<title>
-									{"yomoyama-" + posts[0].category}
+									{"yomoyamabanashi-" + posts[0].category}
 								</title>
 								{/* <meta property="og:image" content={posts[0].ogImage.url} /> */}
 								{/* ogImageって何？ */}
