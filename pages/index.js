@@ -1,4 +1,4 @@
-import Container from '../components/container'
+import { Container } from '../components/container'
 import MoreStories from '../components/more-stories'
 import HeroPost from '../components/hero-post'
 import Intro from '../components/intro'
@@ -30,6 +30,7 @@ export default function Index({ allPosts }) {
             />
           )}
           {morePosts.length > 0 && <MoreStories title="過去の記事" posts={morePosts} />}
+
         </Container>
       </Layout>
     </>

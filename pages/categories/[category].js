@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import ErrorPage from 'next/error'
-import Container from '../../components/container'
+import { Container } from '../../components/container'
 import PostBody from '../../components/post-body'
 import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
@@ -29,19 +29,19 @@ export default function Category({ posts, categories, morePosts, preview }) {
 					{router.isFallback ? (
 						<PostTitle>Loading…</PostTitle>
 					) : (
-							<>
-								<Head>
-									<title>
-										{"yomoyama-" + posts[0].category}
-									</title>
-									{/* <meta property="og:image" content={posts[0].ogImage.url} /> */}
-									{/* ogImageって何？ */}
-								</Head>
-								<Container>
-									<MoreStories title={posts[0].category} posts={posts} />
-								</Container>
-							</>
-						)}
+						<>
+							<Head>
+								<title>
+									{"yomoyama-" + posts[0].category}
+								</title>
+								{/* <meta property="og:image" content={posts[0].ogImage.url} /> */}
+								{/* ogImageって何？ */}
+							</Head>
+							<Container>
+								<MoreStories title={posts[0].category} posts={posts} />
+							</Container>
+						</>
+					)}
 				</Container>
 				<CategoryList categories={categories} />
 			</Container>

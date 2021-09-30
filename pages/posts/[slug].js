@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
-import Container from '../../components/container'
+import { Container } from '../../components/container'
 import PostBody from '../../components/post-body'
 import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
@@ -13,7 +13,7 @@ import markdownToHtml from '../../lib/markdownToHtml'
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
-  if (!router.isFallback && !post ?.slug) {
+  if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
   return (
@@ -23,25 +23,25 @@ export default function Post({ post, morePosts, preview }) {
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
-            <>
-              <article className="mb-32">
-                <Head>
-                  <title>
-                    {"yomoyama-" + post.title}
-                  </title>
-                  <meta property="og:image" content={post.ogImage.url} />
-                </Head>
-                <PostHeader
-                  title={post.title}
-                  category={post.category}
-                  coverImage={post.coverImage}
-                  date={post.date}
-                  author={post.author}
-                />
-                <PostBody content={post.content} />
-              </article>
-            </>
-          )}
+          <>
+            <article className="mb-32">
+              <Head>
+                <title>
+                  {"yomoyama-" + post.title}
+                </title>
+                <meta property="og:image" content={post.ogImage.url} />
+              </Head>
+              <PostHeader
+                title={post.title}
+                category={post.category}
+                coverImage={post.coverImage}
+                date={post.date}
+                author={post.author}
+              />
+              <PostBody content={post.content} />
+            </article>
+          </>
+        )}
       </Container>
     </Layout>
   )

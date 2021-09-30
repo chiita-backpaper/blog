@@ -1,4 +1,4 @@
-import Container from './container'
+import { Container } from './container'
 import { EXAMPLE_PATH } from '../lib/constants'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
