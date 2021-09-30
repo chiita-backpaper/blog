@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import ErrorPage from 'next/error'
-import { Container } from '../../components/container'
+import { Container, FlexContainer, CategoryContainer } from '../../components/container'
 import PostBody from '../../components/post-body'
 import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
@@ -24,8 +24,8 @@ export default function Category({ posts, categories, morePosts, preview }) {
 	return (
 		<Layout preview={preview}>
 			<Container>
-				<Container>
-					<Header />
+				<Header />
+				<FlexContainer>
 					{router.isFallback ? (
 						<PostTitle>Loading…</PostTitle>
 					) : (
@@ -42,10 +42,10 @@ export default function Category({ posts, categories, morePosts, preview }) {
 							</Container>
 						</>
 					)}
-				</Container>
-				<CategoryList categories={categories} />
+					<CategoryList categories={categories} />
+				</FlexContainer>
 			</Container>
-		</Layout>
+		</Layout >
 	)
 }
 
