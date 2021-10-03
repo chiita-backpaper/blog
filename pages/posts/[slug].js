@@ -6,13 +6,13 @@ import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
 import CategoryList from '../../components/category-list'
 import Layout from '../../components/layout'
-import { getAllPosts, getPostsByCategory, getPostSlugs, getPostBySlug, getAllCategories } from '../../lib/api'
+import { getAllPosts, getPostsByCategory, getPostSlugs, getPostBySlug, getCategoryDict } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
 
-export default function Post({ post, categories, morePosts, preview }) {
+export default function Post({ post, categoryDict, morePosts, preview }) {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -44,7 +44,7 @@ export default function Post({ post, categories, morePosts, preview }) {
               </article>
             </>
           )}
-          <CategoryList categories={categories} />
+          <CategoryList categoryDict={categoryDict} />
         </FlexContainer>
       </Container>
     </Layout>
@@ -63,7 +63,7 @@ export async function getStaticProps({ params }) {
     'coverImage',
   ])
   const content = await markdownToHtml(post.content || '')
-  const categories = getAllCategories()
+  const categoryDict = getCategoryDict()
 
   return {
     props: {
@@ -71,7 +71,7 @@ export async function getStaticProps({ params }) {
         ...post,
         content,
       },
-      categories: categories
+      categoryDict: categoryDict
     },
   }
 }

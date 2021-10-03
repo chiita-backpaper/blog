@@ -9,14 +9,14 @@ import DateFormatter from '../../components/date-formatter'
 import Avatar from '../../components/avatar'
 import CategoryList from '../../components/category-list'
 import Layout from '../../components/layout'
-import { getAllPosts, getPostsByCategory, getPostSlugs, getAllCategories } from '../../lib/api'
+import { getAllPosts, getPostsByCategory, getPostSlugs, getCategoryDict } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
 import markdownToHtml from '../../lib/markdownToHtml'
 import MoreStories from '../../components/more-stories';
 
-export default function Category({ posts, categories, morePosts, preview }) {
+export default function Category({ posts, categoryDict, morePosts, preview }) {
 	const router = useRouter()
 	if (!router.isFallback && !posts) {
 		return <ErrorPage statusCode={404} />
@@ -42,7 +42,7 @@ export default function Category({ posts, categories, morePosts, preview }) {
 							</Container>
 						</>
 					)}
-					<CategoryList categories={categories} />
+					<CategoryList categoryDict={categoryDict} />
 				</FlexContainer>
 			</Container>
 		</Layout >
@@ -60,12 +60,12 @@ export async function getStaticProps({ params }) {
 		'ogImage',
 		'coverImage',
 	])
-	const categories = getAllCategories()
+	const categoryDict = getCategoryDict()
 
 	return {
 		props: {
 			posts: posts,
-			categories: categories
+			categoryDict: categoryDict
 		},
 	}
 }
