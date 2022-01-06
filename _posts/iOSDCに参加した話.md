@@ -1,7 +1,7 @@
 ---
 title: "iOSDCに参加した話"
 category: "iOS"
-excerpt: "iOSDC に参加しました。色々と勉強になったので特に"
+excerpt: "iOSDC に参加しました。"
 coverImage: "/assets/blog/hello-world/cover.jpg"
 date: "2021-09-16"
 author:
